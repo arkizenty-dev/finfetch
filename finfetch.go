@@ -4,25 +4,49 @@ package main
 import (
 	"fmt"
 	"time"
-	. "github.com/logrusorgru/aurora"
+	c "github.com/logrusorgru/aurora"
+	"os"
+	"os/exec"
+	"runtime"
 )
 
 func main() {
-	then := time.Now()
-	fmt.Println(Cyan("                *     * "))
-	fmt.Println(Cyan("              * * * * * *"))
-	fmt.Println(Cyan("            *     * *     * "))
-	fmt.Println(Cyan("                  * * "))
-	fmt.Println(Cyan("                  * * "))
-	fmt.Println(Blue("            # # # # # # # # #       "), Blue("Finfetch 1.0"))
-	fmt.Println(Blue("#   #     # # # # # # # # # # #     "), Blue("Date:"), Cyan(then.Month()), Cyan(then.Day()), "," , Cyan(then.Year()))
-	fmt.Println(Blue("  #     # # # # # # # # # #"), Black("@"), Blue("# #   "), Blue("Weekday:"), Cyan(then.Weekday()))
-	fmt.Println(Blue("  #   # # # # # # # # # # #"), Black("@"), Blue("# # # "), Blue("Time:"), Cyan(then.Hour()), ":", Cyan(then.Minute()), ":", Cyan(then.Second()))
-	fmt.Println(Blue("  # # # # # # # # # # # # # # # # # "), Blue("Timezone:"), Cyan(then.Location()))
-	fmt.Println(Blue("    # # # # # # # # # # # # #"), Black("@"), Blue("# #"))
-	fmt.Println(Blue("      # # # # # # # # # # # # #"), Black("@ @"))
-	fmt.Println(Blue("        # # # # # # # # # # # # # #"))
-	fmt.Println(Cyan("          @ @"), Blue("# # # # # # # #"), Cyan("@ @ @"))
-	fmt.Println(Cyan("            @ @ @ @ @ @ @ @ @ @"))
-	fmt.Println("\n\n")
+	for {
+		clear()
+		then := time.Now()
+		fmt.Println(c.Cyan("                *     * "))
+		fmt.Println(c.Cyan("              * * * * * *"))
+		fmt.Println(c.Cyan("            *     * *     * "))
+		fmt.Println(c.Cyan("                  * * "))
+		fmt.Println(c.Cyan("                  * * "))
+		fmt.Println(c.Blue("            # # # # # # # # #       "))
+		fmt.Println(c.Blue("#   #     # # # # # # # # # # #     "), c.Blue("Date:"), c.Cyan(then.Month()), c.Cyan(then.Day()), "," , c.Cyan(then.Year()))
+		fmt.Println(c.Blue("  #     # # # # # # # # # #"), c.Black("@"), c.Blue("# #   "), c.Blue("Weekday:"), c.Cyan(then.Weekday()))
+		fmt.Println(c.Blue("  #   # # # # # # # # # # #"), c.Black("@"), c.Blue("# # # "), c.Blue("Time:"), c.Cyan(then.Hour()), ":", c.Cyan(then.Minute()), ":", c.Cyan(then.Second()))
+		fmt.Println(c.Blue("  # # # # # # # # # # # # # # # # # "), c.Blue("Timezone:"), c.Cyan(then.Location()))
+		fmt.Println(c.Blue("    # # # # # # # # # # # # #"), c.Black("@"), c.Blue("# #"))
+		fmt.Println(c.Blue("      # # # # # # # # # # # # #"), c.Black("@ @"))
+		fmt.Println(c.Blue("        # # # # # # # # # # # # # #"))
+		fmt.Println(c.Cyan("          @ @"), c.Blue("# # # # # # # #"), c.Cyan("@ @ @"))
+		fmt.Println(c.Cyan("            @ @ @ @ @ @ @ @ @ @"))
+		fmt.Println("")
+		time.Sleep(1 * time.Second)
+	}
 }
+
+func clear() {
+	var cls string
+	if runtime.GOOS == "windows" {
+		cls = "cls"
+	} else {
+		cls = "clear"
+	}
+	c := exec.Command(cls)
+	c.Stdout = os.Stdout
+	c.Run()
+}
+
+// func round(val float64) int {
+//     if val < 0 { return int(val-0.5) }
+//     return int(val+0.5)
+// }
