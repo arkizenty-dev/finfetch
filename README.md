@@ -10,7 +10,8 @@ installation
 * Downloading and installing finfetch:
 `git clone https://github.com/arkizenty/finfetch/`
 `cd finfetch`
-`go install finfetch.go`
+* Install
+Standstill:`go install finfetch.go` Constant:`go install finfetch-o.go`
 * Testing:
  `finfetch`
  
