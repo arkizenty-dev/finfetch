@@ -1,28 +1,200 @@
 package main
 
-
 import (
 	"fmt"
 	"time"
-	. "github.com/logrusorgru/aurora"
+	"flag"
+	"strings"
+	"os"
+	"os/exec"
+	"runtime"
+	"github.com/fatih/color"
 )
 
+var at = flag.String("a", "whale", "Sets displayed ascii art")
+
 func main() {
-	then := time.Now()
-	fmt.Println(Cyan("                *     * "))
-	fmt.Println(Cyan("              * * * * * *"))
-	fmt.Println(Cyan("            *     * *     * "))
-	fmt.Println(Cyan("                  * * "))
-	fmt.Println(Cyan("                  * * "))
-	fmt.Println(Blue("            # # # # # # # # #       "))
-	fmt.Println(Blue("#   #     # # # # # # # # # # #     "), Blue("Date:"), Cyan(then.Month()), Cyan(then.Day()), "," , Cyan(then.Year()))
-	fmt.Println(Blue("  #     # # # # # # # # # #"), Black("@"), Blue("# #   "), Blue("Weekday:"), Cyan(then.Weekday()))
-	fmt.Println(Blue("  #   # # # # # # # # # # #"), Black("@"), Blue("# # # "), Blue("Time:"), Cyan(then.Hour()), ":", Cyan(then.Minute()), ":", Cyan(then.Second()))
-	fmt.Println(Blue("  # # # # # # # # # # # # # # # # # "), Blue("Timezone:"), Cyan(then.Location()))
-	fmt.Println(Blue("    # # # # # # # # # # # # #"), Black("@"), Blue("# #"))
-	fmt.Println(Blue("      # # # # # # # # # # # # #"), Black("@ @"))
-	fmt.Println(Blue("        # # # # # # # # # # # # # #"))
-	fmt.Println(Cyan("          @ @"), Blue("# # # # # # # #"), Cyan("@ @ @"))
-	fmt.Println(Cyan("            @ @ @ @ @ @ @ @ @ @"))
-	fmt.Println("\n\n")
+
+	help := flag.Bool("h", false, "List of availible commands")
+	lists := flag.Bool("l", false, "List of colors/art availible")
+	credits := flag.Bool("c", false, "Finfetch's credits")
+	realtime := flag.Bool("r", false, "Enables real-time changes")
+	tc := flag.String("tc", "cyan", "Sets text color")
+
+	flag.Parse()
+
+	switch {
+	//-h
+	case *help:
+		fmt.Println(helper)
+		return
+	//-c
+	case *credits:
+		fmt.Println(credit)
+		return
+	//-l
+	case *lists:
+		fmt.Println(list)
+		return
+	}
+
+	//-tc
+	txtcolor := strings.ToLower(*tc)
+	switch txtcolor {
+	case "red":
+		color.Set(color.FgRed)
+	case "green":
+		color.Set(color.FgGreen)
+	case "yellow":
+		color.Set(color.FgYellow)
+	case "blue":
+		color.Set(color.FgBlue)
+	case "magenta":
+		color.Set(color.FgMagenta)
+	case "cyan":
+		color.Set(color.FgCyan)
+	case "white":
+		color.Set(color.FgWhite)
+	case "black":
+		color.Set(color.FgBlack)
+	default:
+		color.Set(color.FgRed)
+		fmt.Println(fmt.Sprintf(`"%+v" is not an availible color!`, *tc))
+		color.Unset()
+		return
+		}
+
+	//-r
+	switch {
+	case *realtime:
+		for {
+					cleared()
+					ascii()
+					time.Sleep(1 * time.Second)
+				}
+	default:
+		ascii()
+		color.Unset()
+		return
+	}
 }
+
+func ascii(){
+	clock := time.Now()
+	date := fmt.Sprintf("%+v %+v, %+v", clock.Month(), clock.Day(), clock.Year())
+	time := fmt.Sprintf("%+v:%+v:%+v", clock.Hour(), clock.Minute(), clock.Second())
+
+	asciiart := strings.ToLower(*at)
+	switch asciiart {
+	case "whale":
+		fmt.Println(fmt.Sprintf(`     .-
+'--./ /     _.---.
+'-,  (__..--       \ 	Date: %+v
+   \          .     |	Time: %+v
+    \,.__.   ,__.--/
+      '._/_.'_____/
+
+`, date, time))
+
+	case "cat":
+		fmt.Println(fmt.Sprintf(`      /\_/\
+ ____/ o o \	Date: %+v
+/~____  =ø= /	Time: %+v
+(______)__m_m)
+
+ `, date, time))
+ 
+	case "clock":
+		fmt.Println(fmt.Sprintf(`  _______
+ /  12   \
+|    |    |	Date: %+v
+|9   |   3|	Time: %+v
+|     \   |
+|         |
+ \___6___/
+		`, date, time))
+		
+	case "none":
+		fmt.Println(fmt.Sprintf(`Date: %+v
+Time: %+v
+		`, date, time))
+		
+ 	default:
+ 		color.Set(color.FgRed)
+ 		fmt.Println(fmt.Sprintf(`"%+v" is not an availible art!`, asciiart))
+ 		color.Unset()
+	}
+	return
+}
+
+func cleared(){
+	switch os := runtime.GOOS; os {
+	case "windows":
+		wincls()
+	default:
+		clr()
+	}
+}
+
+func wincls() {
+	cls := exec.Command("cmd", "/c", "cls")
+	cls.Stdout = os.Stdout
+	cls.Run()
+}
+
+func clr(){
+	clear := exec.Command("clear")
+	clear.Stdout = os.Stdout
+	clear.Run()
+}
+
+var helper = `Finfetch 2.0
+Usage: finfetch [prefix]
+
+Options:
+	-h			List of availible commands
+	-l			List of colors/art availible
+	-c			Finfetch's credits
+	-tc [Color]	Sets text color
+	-a [Name]	Sets displayed ascii art
+	-r			Enables real-time changes
+	
+	`
+
+var list = `Colors:
+	-red
+	-green
+	-yellow
+	-blue
+	-magenta
+	-cyan
+	-white
+
+Ascii:
+	-whale
+	-cat
+	-clock
+	-none
+
+`
+
+var credit = `Finfetch Credits
+Created by arkizenty
+
+Resources Used:
+	asciiart.website
+	github.com/fatih/color
+
+Special Thanks:
+	screenfetch
+	neofetch
+	ufetch
+
+  ______ _        __     _       _
+ |  ____(_)      / _|   | |     | |
+ | |__   _ _ __ | |_ ___| |_ ___| |__
+ |  __| | | '_ \|  _/ _ \ __/ __| '_ \
+ | |    | | | | | ||  __/ || (__| | | |
+ |_|    |_|_| |_|_| \___|\__\___|_| |_|
+
+`
