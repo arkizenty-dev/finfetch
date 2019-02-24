@@ -7,8 +7,8 @@ Finfetch is a simple clock for the terminal/cmd that provides a fast and simple 
 
 # installation
 #### Using Go Get
-* `go get github.com/arkizenty/finfetch`
-* `finfetch`
+ 1. `go get github.com/arkizenty/finfetch`
+ 2. `finfetch`
 #### Pre-built builds
 https://github.com/arkizenty/finfetch/releases
 
@@ -22,4 +22,4 @@ https://github.com/arkizenty/finfetch/releases
  * ufetch
  
  # wiki
- https://github.com/arkizenty/finfetch/wiki
+ > https://github.com/arkizenty/finfetch/wiki
