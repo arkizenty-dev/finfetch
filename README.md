@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/arkizenty/assets/master/finfetch/finfetch.png" alt="finfetch">
+### ![](https://raw.githubusercontent.com/arkizenty/assets/master/finfetch/finfetch.png)
 A simple clock for the terminal written in Go
 
 # about
