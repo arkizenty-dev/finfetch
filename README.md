@@ -1,4 +1,8 @@
 ### ![](https://raw.githubusercontent.com/arkizenty/assets/master/finfetch/finfetch.png)
+[![Build Status](https://travis-ci.org/arkizenty/finfetch.svg?branch=master)](https://travis-ci.org/arkizenty/finfetch)
+[![Go Report Card](https://goreportcard.com/badge/github.com/arkizenty/finfetch)](https://goreportcard.com/report/github.com/arkizenty/finfetch)
+[![codebeat badge](https://codebeat.co/badges/f27bb3fd-a9a0-4cbc-881d-a960e4405fa5)](https://codebeat.co/projects/github-com-arkizenty-finfetch-master)
+<br/>
 A simple clock for the terminal written in Go
 
 # about
