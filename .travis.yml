@@ -1,0 +1,10 @@
+language: go
+
+go:
+  - master
+
+before_install:
+  - go get github.com/fatih/color
+
+script:
+- go test
