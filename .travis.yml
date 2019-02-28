@@ -7,4 +7,4 @@ before_install:
   - go get github.com/fatih/color
 
 script:
-- go test finfetch.go
+- go build finfetch.go
