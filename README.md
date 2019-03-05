@@ -26,5 +26,7 @@ https://github.com/arkizenty/finfetch/releases
  * neofetch
  * ufetch
  
- # wiki
- > https://github.com/arkizenty/finfetch/wiki
+ # other
+ * [Wiki](https://github.com/arkizenty/finfetch/wiki)
+ * [Ferrisfetch](https://github.com/arkizenty/ferrisfetch)
+ * [finfetch-lite.glitch.me](https://finfetch-lite.glitch.me/)
