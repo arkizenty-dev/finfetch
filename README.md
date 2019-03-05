@@ -30,3 +30,9 @@ https://github.com/arkizenty/finfetch/releases
  * [Wiki](https://github.com/arkizenty/finfetch/wiki)
  * [Ferrisfetch](https://github.com/arkizenty/ferrisfetch)
  * [finfetch-lite.glitch.me](https://finfetch-lite.glitch.me/)
+ 
+ 
+<meta content="Finfetch" property="og:title">
+<meta content="A simple command line tool used to show time written in Go " property="og:description">
+<meta content="Finfetch" property="og:site_name">
+<meta content='https://raw.githubusercontent.com/arkizenty/assets/master/finfetch/finfetch.png' property='og:image'>
