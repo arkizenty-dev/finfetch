@@ -15,8 +15,8 @@ var at = flag.String("a", "whale", "Sets displayed ascii art")
 
 func main() {
 
-	help := flag.Bool("h", false, "List of availible commands")
-	lists := flag.Bool("l", false, "List of colors/art availible")
+	help := flag.Bool("h", false, "List of available commands")
+	lists := flag.Bool("l", false, "List of colors/art available")
 	credits := flag.Bool("c", false, "Finfetch's credits")
 	realtime := flag.Bool("r", false, "Enables real-time changes")
 	tc := flag.String("tc", "cyan", "Sets text color")
@@ -59,7 +59,7 @@ func main() {
 		color.Set(color.FgBlack)
 	default:
 		color.Set(color.FgRed)
-		fmt.Println(fmt.Sprintf(`"%+v" is not an availible color!`, *tc))
+		fmt.Println(fmt.Sprintf(`"%+v" is not an available color!`, *tc))
 		color.Unset()
 		return
 		}
@@ -121,7 +121,7 @@ Time: %+v
 		
  	default:
  		color.Set(color.FgRed)
- 		fmt.Println(fmt.Sprintf(`"%+v" is not an availible art!`, asciiart))
+ 		fmt.Println(fmt.Sprintf(`"%+v" is not an available art!`, asciiart))
  		color.Unset()
 	}
 	return
@@ -148,15 +148,15 @@ func clr(){
 	clear.Run()
 }
 
-var helper = `Finfetch 2.0
+var helper = `Finfetch 2.1
 Usage: finfetch [prefix]
 
 Options:
-	-h			List of availible commands
-	-l			List of colors/art availible
+	-h			List of available commands
+	-l			List of colors/art available
 	-c			Finfetch's credits
-	-tc [Color]	Sets text color
-	-a [Name]	Sets displayed ascii art
+	-tc [Color]		Sets text color
+	-a [Name]		Sets displayed ascii art
 	-r			Enables real-time changes
 	
 	`
