@@ -1,9 +1,8 @@
 
   name: finfetch
-  version: '2.1.0'
+  version: master
   summary: A simple command line tool used to show time written in Go.
-  description: |
-    Finfetch is a simple clock for the terminal/cmd 
+  description: Finfetch is a simple clock for the terminal/cmd 
     that provides a fast and simple way of showing 
     the time and date with ascii art.
 
