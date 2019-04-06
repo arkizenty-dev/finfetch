@@ -1,20 +1,16 @@
+name: finfetch
+version: '2.0.0'
+summary: A simple command line tool used to show time written in Go.
+description: |
+  Finfetch is a simple clock for the terminal/cmd 
+  that provides a fast and simple way of showing 
+  the time and date with ascii art.
 
-  name: finfetch
-  version: master
-  summary: A simple command line tool used to show time written in Go.
-  description: Finfetch is a simple clock for the terminal/cmd 
-    that provides a fast and simple way of showing 
-    the time and date with ascii art.
+grade: devel # 'stable' or 'devel'
+confinement: devmode # use 'strict' once you have the right plugs and slots
 
-  grade: stable
-  confinement: devmode # use 'strict' once you have the right plugs and slots
-
-  parts:
-    finfetch:
-      source: .
-      plugin: go
-      go-importpath: github.com/arkizenty/finfetch
-      
-  apps:
-  finfetch:
-    command: finfetch
+parts:
+  my-part:
+    source: .
+    plugin: go
+    go-importpath: github.com/arkizenty/finfetch
