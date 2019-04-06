@@ -1,5 +1,5 @@
 name: finfetch
-version: '2.0.0'
+version: '2.1'
 summary: A simple command line tool used to show time written in Go.
 description: |
   Finfetch is a simple clock for the terminal/cmd 
