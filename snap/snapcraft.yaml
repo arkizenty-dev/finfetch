@@ -6,8 +6,8 @@ description: |
   that provides a fast and simple way of showing 
   the time and date with ascii art.
 
-grade: devel # 'stable' or 'devel'
-confinement: devmode # use 'strict' once you have the right plugs and slots
+grade: stable # 'stable' or 'devel'
+confinement: strict # 'strict' or 'devmode'
 
 parts:
   my-part:
