@@ -14,3 +14,7 @@ parts:
     source: .
     plugin: go
     go-importpath: github.com/arkizenty/finfetch
+
+apps:
+  finfetch:
+    command: finfetch
