@@ -12,14 +12,19 @@ Finfetch is a simple clock for the terminal/cmd that provides a fast and simple 
 
 # installation
 #### Using Go Get
-*[Go] is required
- 1. `go get github.com/arkizenty/finfetch`
- 2. `finfetch`
+[Go] is required
+```
+go get github.com/arkizenty/finfetch`
+finfetch
+```
 #### Compiling from code
-*[Go] is required
-1. `go get github.com/fatih/color` (If not installed)
-2. `git clone github.com/arkizenty/finfetch` OR [Source Code](https://github.com/arkizenty/finfetch/archive/master.zip)
-3. `go build main.go`
+[Go] is required
+```
+go get github.com/fatih/color
+git clone github.com/arkizenty/finfetch
+cd finfetch
+go build main.go
+```
 #### Pre-built builds
 [Download](https://github.com/arkizenty/finfetch/releases)
 
