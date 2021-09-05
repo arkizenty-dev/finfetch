@@ -2,11 +2,11 @@
 <br/>
 A simple clock for the terminal written in [Go]
 
-# about
+# About
 Finfetch is a simple clock for the terminal/cmd that provides a fast and simple way of showing the time and date with ascii art. Finfetch was originally created for unix-based setups but also provides support for Windows and OSX.
 ![](https://raw.githubusercontent.com/arkizenty-dev/assets/master/finfetch/finfetch_2.png)
 
-# installation
+# Installation
 #### Using Go Get
 [Go] is required
 ```
